@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 4 - Contact Us</title>
+
+    <style>
+      .form-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        margin-top: 10%;
+      }
+      .login-form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: space-between;
+      }
+      .basic-info {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        justify-content: space-between;
+      }
+      .message-btn {
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <fieldset>
+        <legend>Contact Us</legend>
+        <form class="login-form">
+          <div class="basic-info">
+            <section>
+              <label for="firstName">First Name</label>:
+              <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                placeholder="Enter First Name"
+                required
+              />
+            </section>
+            <section>
+              <label for="middleName">Middle Name</label>:
+              <input
+                type="text"
+                id="middleName"
+                name="middleName"
+                placeholder="Enter Middle Name"
+              />
+            </section>
+            <section>
+              <label for="lastName">Last Name</label>:
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                placeholder="Enter Last Name"
+                required
+              />
+            </section>
+          </div>
+
+          <div class="basic-info">
+            <section>
+              <label for="email">Email</label>:
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your Email"
+                required
+              />
+            </section>
+            <section>
+              <label for="phone">Phone</label>:
+              <input
+                type="phone"
+                id="phone"
+                name="phone"
+                placeholder="Enter Phone"
+              />
+            </section>
+          </div>
+
+          <div class="basic-info">
+            <section>
+              <label for="subject">Message Subject</label>:
+              <input
+                type="text"
+                id="subject"
+                placeholder="Enter message subject"
+                required
+              />
+            </section>
+            <section>
+              <label for="message">Message</label>:
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Enter message here"
+              ></textarea>
+            </section>
+          </div>
+
+          <div class="message-btn">
+            <button>Send Message</button>
+          </div>
+        </form>
+      </fieldset>
+    </div>
+  </body>
+</html>
