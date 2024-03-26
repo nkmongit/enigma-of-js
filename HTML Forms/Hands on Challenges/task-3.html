@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 3 - Forgot Password</title>
+
+    <style>
+      .form-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        margin-top: 10%;
+      }
+      .login-form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: space-between;
+      }
+      .basic-info {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        justify-content: space-between;
+      }
+      .forgot-btn {
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <fieldset>
+        <legend>Forgot Password?</legend>
+        <form class="login-form">
+          <div class="basic-info">
+            <section>
+              <label for="firstName">First Name</label>:
+              <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                placeholder="Enter First Name"
+                required
+              />
+            </section>
+            <section>
+              <label for="lastName">Last Name</label>:
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                placeholder="Enter Last Name"
+                required
+              />
+            </section>
+          </div>
+
+          <div class="basic-info">
+            <section>
+              <label for="phone">Phone</label>:
+              <input
+                type="phone"
+                id="phone"
+                placeholder="Enter your phone"
+                required
+              />
+            </section>
+            <section>
+              <label for="birthdate">Birthdate</label>:
+              <input type="date" id="birthdate" name="birthdate" required />
+            </section>
+          </div>
+
+          <div class="forgot-btn">
+            <button>Forgot Password</button>
+          </div>
+        </form>
+      </fieldset>
+    </div>
+  </body>
+</html>

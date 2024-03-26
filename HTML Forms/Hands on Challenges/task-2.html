@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 2 - Sigup Form</title>
+
+    <style>
+      .form-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+      }
+      .login-form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: space-between;
+      }
+      .basic-info {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        justify-content: space-between;
+      }
+      .signup-btn {
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <fieldset>
+        <legend>Signup Form</legend>
+        <form class="login-form">
+          <div class="basic-info">
+            <section>
+              <label for="firstName">First Name</label>:
+              <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                placeholder="Enter First Name"
+                required
+              />
+            </section>
+            <section>
+              <label for="lastName">Last Name</label>:
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                placeholder="Enter Last Name"
+                required
+              />
+            </section>
+          </div>
+
+          <div class="basic-info">
+            <section>
+              <label for="password">Password</label>:
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter a password"
+                minlength="8"
+                required
+              />
+            </section>
+            <section>
+              <label for="confirmPassword">Confirm Password</label>:
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                placeholder="Confirm your password"
+                minlength="8"
+                required
+              />
+            </section>
+          </div>
+
+          <div class="basic-info">
+            <section>
+              <label for="birthdate">Birthdate</label>:
+              <input type="date" id="birthdate" name="birthdate" required />
+            </section>
+            <section>
+              <label for="gender">Gender</label>:
+              <select id="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="others">Others</option>
+              </select>
+            </section>
+          </div>
+
+          <div class="basic-info">
+            <section>
+              <label for="email">Email</label>:
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter an email"
+                required
+              />
+            </section>
+            <section>
+              <label for="phone">Phone</label>:
+              <input
+                type="phone"
+                id="phone"
+                placeholder="Enter your phone"
+                required
+              />
+            </section>
+          </div>
+
+          <div class="basic-info">
+            <section>
+              <label for="country">Country</label>:
+              <input
+                type="text"
+                id="country"
+                name="country"
+                placeholder="Enter your country"
+                required
+              />
+            </section>
+          </div>
+
+          <div class="signup-btn">
+            <button>Sign Up</button>
+          </div>
+        </form>
+      </fieldset>
+    </div>
+  </body>
+</html>
