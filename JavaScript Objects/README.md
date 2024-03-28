@@ -609,3 +609,9 @@ console.log(character);
 ### Object.getPrototypeOf()
 
 - Object.getPrototypeOf() is used to get the internal hidden [[Prototype]] of an object, also accessible through the **proto** property.
+
+### this
+
+- In JavaScript, the this keyword refers to an object.
+- Which object depends on how this is being invoked (used or called).Which object depends on how this is being invoked (used or called).
+-
