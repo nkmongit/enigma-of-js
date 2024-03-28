@@ -16,11 +16,8 @@
 ```js
 let user = {
   // an object
-<<<<<<< HEAD
-  name: 'John', // by key "name" store value "John"
-=======
   name: "John", // by key "name" store value "John"
->>>>>>> 625ff86 (Adding existing project files to git)
+  name: "John", // by key "name" store value "John"
   age: 30, // by key "age" store value 30
 };
 ```
@@ -55,15 +52,12 @@ let user = {
 
   ```js
   let user = {
-  <<<<<<< HEAD
-    name: 'John',
-    age: 30,
-    'likes birds': true, // multiword property name must be quoted
-  =======
     name: "John",
     age: 30,
     "likes birds": true, // multiword property name must be quoted
-  >>>>>>> 625ff86 (Adding existing project files to git)
+    name: "John",
+    age: 30,
+    "likes birds": true, // multiword property name must be quoted
   };
   ```
 
@@ -83,15 +77,6 @@ let user = {
   let user = {};
 
   // set
-  <<<<<<< HEAD
-  user['likes birds'] = true;
-
-  // get
-  alert(user['likes birds']); // true
-
-  // delete
-  delete user['likes birds'];
-  =======
   user["likes birds"] = true;
 
   // get
@@ -99,17 +84,20 @@ let user = {
 
   // delete
   delete user["likes birds"];
-  >>>>>>> 625ff86 (Adding existing project files to git)
+  user["likes birds"] = true;
+
+  // get
+  alert(user["likes birds"]); // true
+
+  // delete
+  delete user["likes birds"];
   ```
 
 - Square brackets also provide a way to obtain the property name as the result of any expression – as opposed to a literal string – like from a variable as follows:
 
   ```js
-  <<<<<<< HEAD
-  let key = 'likes birds';
-  =======
   let key = "likes birds";
-  >>>>>>> 625ff86 (Adding existing project files to git)
+  let key = "likes birds";
 
   // same as user["likes birds"] = true;
   user[key] = true;
@@ -119,19 +107,16 @@ let user = {
 
   ```js
   let user = {
-  <<<<<<< HEAD
     name: 'John',
     age: 30,
   };
 
   let key = prompt('What do you want to know about the user?', 'name');
-  =======
     name: "John",
     age: 30,
   };
 
   let key = prompt("What do you want to know about the user?", "name");
-  >>>>>>> 625ff86 (Adding existing project files to git)
 
   // access by variable
   alert(user[key]); // John (if enter "name")
@@ -141,13 +126,11 @@ let user = {
 
   ```js
   let user = {
-  <<<<<<< HEAD
     name: 'John',
     age: 30,
   };
 
   let key = 'name';
-  =======
     name: "John",
     age: 30,
   };
@@ -167,12 +150,8 @@ function makeUser(name, age) {
     // ...other properties
   };
 }
-
-<<<<<<< HEAD
-let user = makeUser('John', 30);
-=======
 let user = makeUser("John", 30);
->>>>>>> 625ff86 (Adding existing project files to git)
+let user = makeUser("John", 30);
 alert(user.name); // John
 ```
 
@@ -239,12 +218,10 @@ function makeUser(name, age) {
 - There’s also a special operator "in" for that.
 
   ```js
-  <<<<<<< HEAD
   let user = { name: 'John', age: 30 };
 
   alert('age' in user); // true, user.age exists
   alert('blabla' in user); // false, user.blabla doesn't exist
-  =======
   let user = { name: "John", age: 30 };
 
   alert("age" in user); // true, user.age exists
@@ -258,11 +235,8 @@ function makeUser(name, age) {
 
   ```js
   let user = {
-  <<<<<<< HEAD
-    name: 'John',
-  =======
     name: "John",
-  >>>>>>> 625ff86 (Adding existing project files to git)
+    name: "John",
     age: 30,
     isAdmin: true,
   };
@@ -283,11 +257,8 @@ function makeUser(name, age) {
 
   ```js
   const userDetails = {
-  <<<<<<< HEAD
-    name: 'John Doe',
-  =======
     name: "John Doe",
-  >>>>>>> 625ff86 (Adding existing project files to git)
+    name: "John Doe",
     age: 14,
     verified: false,
   };
@@ -309,11 +280,8 @@ But if we don't want our first object to changed if we make changes in the secon
   ```js
   // Declaring Object
   const userDetails = {
-  <<<<<<< HEAD
-    name: 'John Doe',
-  =======
     name: "John Doe",
-  >>>>>>> 625ff86 (Adding existing project files to git)
+    name: "John Doe",
     age: 14,
     verified: false,
   };
@@ -327,11 +295,8 @@ But if we don't want our first object to changed if we make changes in the secon
   ```js
   // Declaring Object
   const userDetails = {
-  <<<<<<< HEAD
-    name: 'John Doe',
-  =======
     name: "John Doe",
-  >>>>>>> 625ff86 (Adding existing project files to git)
+    name: "John Doe",
     age: 14,
     verified: false,
   };
@@ -345,11 +310,8 @@ But if we don't want our first object to changed if we make changes in the secon
   ```js
   // Declaring Object
   const userDetails = {
-  <<<<<<< HEAD
-    name: 'John Doe',
-  =======
     name: "John Doe",
-  >>>>>>> 625ff86 (Adding existing project files to git)
+    name: "John Doe",
     age: 14,
     verified: false,
   };
@@ -365,11 +327,8 @@ But if we don't want our first object to changed if we make changes in the secon
 
   ```js
   const userDetails = {
-  <<<<<<< HEAD
-    name: 'John Doe',
-  =======
     name: "John Doe",
-  >>>>>>> 625ff86 (Adding existing project files to git)
+    name: "John Doe",
     age: 14,
     status: {
       verified: false,
@@ -389,11 +348,8 @@ But if we don't want our first object to changed if we make changes in the secon
 
   ```js
   const userDetails = {
-  <<<<<<< HEAD
-    name: 'John Doe',
-  =======
     name: "John Doe",
-  >>>>>>> 625ff86 (Adding existing project files to git)
+    name: "John Doe",
     age: 14,
     status: {
       verified: false,
@@ -413,8 +369,6 @@ But if we don't want our first object to changed if we make changes in the secon
 - But there is an issue with this method. The issue is that you can lose your data. How?
 - `JSON.stringify()` works very well with primitive data types like numbers, strings, or Booleans, and that is what you have seen in our previous examples. But sometimes, `JSON.stringify()` is unpredictable if you are not aware of some values and how it handles them.
 - For example, it does not work with functions, symbols, or undefined values. It also changes other values like Nan and Infinity to null, breaking your code. When you have a function, symbol, or undefined value, it will return an empty key-value pair and skip it.
-  <<<<<<< HEAD
-  =======
 
 ## Garbage Collection
 
