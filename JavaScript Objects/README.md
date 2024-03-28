@@ -430,3 +430,182 @@ But if we don't want our first object to changed if we make changes in the secon
 - Unnecessary use of closures (closures always keep a reference of the variables from the parent function even if the parent function has completed execution).
 
 ## Object Methods, "this"
+
+### Object.create()
+
+- The Object.create() method is used to create a new object and link it to the prototype of an existing object.
+- We can create a job object instance, and extend it to a more specific object.
+
+```js
+// Initialize an object with properties and methods
+const job = {
+  position: "cashier",
+  type: "hourly",
+  isAvailable: true,
+  showDetails() {
+    const accepting = this.isAvailable
+      ? "is accepting applications"
+      : "is not currently accepting applications";
+
+    console.log(
+      `The ${this.position} position is ${this.type} and ${accepting}.`
+    );
+  },
+};
+
+// Use Object.create to pass properties
+const barista = Object.create(job);
+
+barista.position = "barista";
+barista.showDetails();
+```
+
+- The barista object now has one property — position — but all the other properties and methods from job are available through the prototype. Object.create() is useful for keeping code DRY by minimizing duplication.
+
+### Object.keys()
+
+- Object.keys() creates an array containing the keys of an object.
+- We can create an object and print the array of keys.
+
+```js
+// Initialize an object
+const employees = {
+  boss: "Michael",
+  secretary: "Pam",
+  sales: "Jim",
+  accountant: "Oscar",
+};
+
+// Get the keys of the object
+const keys = Object.keys(employees);
+
+console.log(keys);
+```
+
+- As Object.keys converts your object’s keys into an array of keys, the forEach() array method can be used to iterate through the keys and values.
+
+```js
+// Iterate through the keys
+Object.keys(employees).forEach((key) => {
+  let value = employees[key];
+
+  console.log(`${key}: ${value}`);
+});
+```
+
+- Object.keys is also useful for checking the length of the converted array using the length property.
+
+```js
+// Get the length of the keys
+const length = Object.keys(employees).length;
+
+console.log(length); // 4
+```
+
+### Object.values()
+
+- Object.values() creates an array containing the values of an object.
+
+```js
+// Initialize an object
+const session = {
+  id: 1,
+  time: `26-July-2018`,
+  device: "mobile",
+  browser: "Chrome",
+};
+
+// Get all values of the object
+const values = Object.values(session);
+
+console.log(values);
+```
+
+- Object.keys() and Object.values() allow you to return the data from an object.
+
+### Object.entries()
+
+- Object.entries() creates a nested array of the key/value pairs of an object.
+
+```js
+// Initialize an object
+const operatingSystem = {
+  name: "Ubuntu",
+  version: 18.04,
+  license: "Open Source",
+};
+
+// Get the object key/value pairs
+const entries = Object.entries(operatingSystem);
+
+console.log(entries);
+
+// Output
+// [
+//     ["name", "Ubuntu"]
+//     ["version", 18.04]
+//     ["license", "Open Source"]
+// ]
+```
+
+- The Object.entries() method will only return the object instance’s own properties, and not any properties that may be inherited through its prototype.
+
+### Object.assign()
+
+- Object.assign() is used to copy values from one object to another.
+- We can create two objects, and merge them with Object.assign().
+
+```js
+// Initialize an object
+const name = {
+  firstName: "Philip",
+  lastName: "Fry",
+};
+
+// Initialize another object
+const details = {
+  job: "Delivery Boy",
+  employer: "Planet Express",
+};
+
+// Merge the objects
+const character = Object.assign(name, details);
+
+console.log(character);
+```
+
+- It is also possible to use the spread operator (...) to accomplish the same task.
+
+```js
+// Initialize an object
+const name = {
+  firstName: "Philip",
+  lastName: "Fry",
+};
+
+// Initialize another object
+const details = {
+  job: "Delivery Boy",
+  employer: "Planet Express",
+};
+
+// Merge the object with the spread operator
+const character = { ...name, ...details };
+
+console.log(character);
+```
+
+- This spread syntax in object literals is also known as shallow-cloning.
+
+### Object.freeze()
+
+- Object.freeze() prevents modification to properties and values of an object, and prevents properties from being added or removed from an object.
+- Object.isFrozen() is available to determine whether an object has been frozen or not, and returns a Boolean.
+
+### Object.seal()
+
+- Object.seal() prevents new properties from being added to an object, but allows the modification of existing properties.
+
+### Object.getPrototypeOf()
+
+- Object.getPrototypeOf() is used to get the internal hidden [[Prototype]] of an object, also accessible through the **proto** property.
