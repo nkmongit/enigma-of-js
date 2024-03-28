@@ -5,6 +5,7 @@
 - Objects are used to store keyed collections of various data and more complex entities.
 - An object can be created with figure brackets {…} with an optional list of properties. A property is a “key: value” pair, where key is a string (also called a “property name”), and value can be anything.
 - An empty object (“empty cabinet”) can be created using one of two syntaxes:
+
   ```js
   let user = new Object(); // "object constructor" syntax
   let user = {}; // "object literal" syntax
@@ -26,21 +27,28 @@ let user = {
   - The second one has the name "age" and the value 30.
 - We can add, remove and read files from it at any time.
 - Property values are accessible using the dot notation:
+
   ```js
   // get property values of the object:
   alert(user.name); // John
   alert(user.age); // 30
   ```
+
 - The value can be of any type.
 - We can add a new value in the same object this way:
+
   ```js
   user.isEligible = true;
   ```
+
 - To remove a property, we can use the delete operator:
+
   ```js
   delete user.isEligible;
   ```
+
 - We can also use multiword property names, but then they must be quoted:
+
   ```js
   let user = {
     name: 'John',
@@ -52,10 +60,12 @@ let user = {
 ### Square brackets
 
 - For multiword properties, the dot access doesn’t work:
+
   ```js
   // this would give a syntax error
   user.likes birds = true
   ```
+
 - JavaScript doesn’t understand that. It thinks that we address user.likes, and then gives a syntax error when comes across unexpected birds.
 - There’s an alternative “square bracket notation” that works with any string:
 
@@ -137,6 +147,7 @@ function makeUser(name, age) {
 ```
 
 - We can use both normal properties and shorthands in the same object:
+
   ```js
   let user = {
     name, // same as name:name
@@ -161,11 +172,13 @@ function makeUser(name, age) {
   ```
 
 - There’s a minor gotcha with a special property named `__proto__`. We can’t set it to a non-object value:
+
   ```js
   let obj = {};
   obj.__proto__ = 5; // assign a number
   alert(obj.__proto__); // [object Object] - the value is an object, didn't work as intended
   ```
+
 - As we see from the code, the assignment to a primitive 5 is ignored.
 
 ### Property existence test, “in” operator
@@ -210,4 +223,114 @@ function makeUser(name, age) {
 ## Object References and Copying
 
 - One of the fundamental differences of objects versus primitives is that objects are stored and copied “by reference”, whereas primitive values: strings, numbers, booleans, etc – are always copied “as a whole value”.
--
+- To copy an object to another object, typically we would use the equality (=) operator.
+- Example we have an object:
+
+  ```js
+  const userDetails = {
+    name: 'John Doe',
+    age: 14,
+    verified: false,
+  };
+  ```
+
+- Now if we would assign this object to another variable.
+
+  ```js
+  const newUser = userDetails;
+  console.log(newUser); // {name: 'John Doe', age: 14, verified: false}
+  ```
+
+- This will work fine, but if we edit our second object, it will affect our first object, because the second object has reference of the first object.
+
+But if we don't want our first object to changed if we make changes in the second we would use these things.
+
+- Object.assign()
+
+  ```js
+  // Declaring Object
+  const userDetails = {
+    name: 'John Doe',
+    age: 14,
+    verified: false,
+  };
+  // Cloning the Object with Object.assign() Method
+  let cloneUser = Object.assign({}, userDetails);
+  console.log(cloneUser); // {name: 'John Doe', age: 14, verified: false}
+  ```
+
+- Using spread operator
+
+  ```js
+  // Declaring Object
+  const userDetails = {
+    name: 'John Doe',
+    age: 14,
+    verified: false,
+  };
+  // Cloning the Object with Spread Operator
+  let cloneUser = { ...userDetails };
+  console.log(cloneUser); // {name: 'John Doe', age: 14, verified: false}
+  ```
+
+- JSON.parse()
+
+  ```js
+  // Declaring Object
+  const userDetails = {
+    name: 'John Doe',
+    age: 14,
+    verified: false,
+  };
+  // Cloning the Object with JSON.parse() Method
+  let cloneUser = JSON.parse(JSON.stringify(userDetails));
+
+  console.log(cloneUser); // {name: 'John Doe', age: 14, verified: false}
+  ```
+
+### Shallow Clone vs. Deep Clone
+
+- When you use the spread `operator` or `Object.assign()` method to clone a deep object, the deeper objects will be referenced.
+
+  ```js
+  const userDetails = {
+    name: 'John Doe',
+    age: 14,
+    status: {
+      verified: false,
+    },
+  };
+  // Cloning the Object with Spread Operator
+  let cloneUser = { ...userDetails };
+
+  // Changing the value of cloneUser
+  cloneUser.status.verified = true;
+
+  console.log(cloneUser); // {name: 'John Doe', age: 14, status: {verified: true}}
+  console.log(userDetails); // {name: 'John Doe', age: 14, status: {verified: true}}
+  ```
+
+- You can use the `JSON.parse()` method, and everything will work fine.
+
+  ```js
+  const userDetails = {
+    name: 'John Doe',
+    age: 14,
+    status: {
+      verified: false,
+    },
+  };
+
+  // Cloning the Object with Spread Operator
+  let cloneUser = JSON.parse(JSON.stringify(userDetails));
+
+  // Changing the value of cloneUser
+  cloneUser.status.verified = true;
+
+  console.log(cloneUser); // {name: 'John Doe', age: 14, status: {verified: true}}
+  console.log(userDetails); // {name: 'John Doe', age: 14, status: {verified: false}}
+  ```
+
+- But there is an issue with this method. The issue is that you can lose your data. How?
+- `JSON.stringify()` works very well with primitive data types like numbers, strings, or Booleans, and that is what you have seen in our previous examples. But sometimes, `JSON.stringify()` is unpredictable if you are not aware of some values and how it handles them.
+- For example, it does not work with functions, symbols, or undefined values. It also changes other values like Nan and Infinity to null, breaking your code. When you have a function, symbol, or undefined value, it will return an empty key-value pair and skip it.
