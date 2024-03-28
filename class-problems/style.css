@@ -1,0 +1,30 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    justify-content: space-around;
+}
+
+.number-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.num1-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.num2-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    height: 12rem;
+}
